@@ -1,3 +1,22 @@
+<!-- partials/scripts.html -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  function toggleFightList() {
+    const fightList = document.getElementById("fightList");
+    if (fightList.classList.contains("d-none")) {
+      fightList.classList.remove("d-none");
+      setTimeout(() => {
+        fightList.classList.remove("opacity-0");
+        fightList.classList.add("opacity-100");
+      }, 10);
+    } else {
+      fightList.classList.remove("opacity-100");
+      fightList.classList.add("opacity-0");
+      setTimeout(() => {
+        fightList.classList.add("d-none");
+      }, 500);
+    }
+  }
+</script>
