@@ -100,36 +100,15 @@
         margin: 10px;
       }
 
-      /* Sub-navbar horizontal on all screens */
       .navbar-sub .navbar-nav {
         flex-direction: row !important;
         flex-wrap: wrap;
         justify-content: center;
       }
-
-      @media (min-width: 992px) {
-        .navbar-expand-lg {
-          flex-wrap: wrap !important;
-        }
-
-        .navbar-collapse {
-          display: none !important;
-          width: 100%;
-        }
-
-        .navbar-collapse.show {
-          display: block !important;
-        }
-
-        .navbar-toggler {
-          display: block !important;
-        }
-      }
     </style>
   </head>
 
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
         <a class="navbar-brand font-weight-bold text-warning" href="index.html"
@@ -144,7 +123,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="btn btn-outline-warning d-lg-none ml-auto" href="#">Login</a>
-
         <div class="collapse navbar-collapse" id="navbarMain">
           <ul class="navbar-nav mx-auto text-center">
             <li class="nav-item">
@@ -175,7 +153,6 @@
       </div>
     </nav>
 
-    <!-- Sub-navbar -->
     <nav class="navbar navbar-sub">
       <div class="container">
         <div class="navbar-nav w-100 justify-content-center flex-row flex-wrap">
@@ -194,7 +171,6 @@
       </div>
     </nav>
 
-    <!-- Konten Leaderboard -->
     <div class="container text-center mt-5">
       <h2 class="mb-4 text-warning">🏆 Leaderboard</h2>
       <div class="btn-group mb-4">
@@ -208,7 +184,6 @@
     </div>
 
     <div class="container">
-      <!-- Tabel Mingguan -->
       <div id="table-mingguan" class="table-section active">
         <h4 class="text-center mb-3 text-light">Peringkat Mingguan</h4>
         <table class="table table-striped table-bordered">
@@ -219,37 +194,14 @@
               <th>Point</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Budi</td>
-              <td>340</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Ani</td>
-              <td>300</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Yudi</td>
-              <td>280</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Indah</td>
-              <td>250</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Sigit</td>
-              <td>220</td>
-            </tr>
-          </tbody>
+          <tbody id="weeklyBody"></tbody>
         </table>
+        <nav
+          class="d-flex justify-content-center mt-3"
+          id="pagination-mingguan"
+        ></nav>
       </div>
 
-      <!-- Tabel Bulanan -->
       <div id="table-bulanan" class="table-section">
         <h4 class="text-center mb-3 text-light">Peringkat Bulanan</h4>
         <table class="table table-striped table-bordered">
@@ -260,34 +212,12 @@
               <th>Point</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Yudi</td>
-              <td>1280</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Budi</td>
-              <td>1210</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Indah</td>
-              <td>1100</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Ani</td>
-              <td>1070</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Rama</td>
-              <td>1020</td>
-            </tr>
-          </tbody>
+          <tbody id="monthlyBody"></tbody>
         </table>
+        <nav
+          class="d-flex justify-content-center mt-3"
+          id="pagination-bulanan"
+        ></nav>
       </div>
 
       <div class="text-center mt-4 mb-5">
@@ -297,7 +227,6 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container text-center">
         <p>Unduh Aplikasi Kami di:</p>
@@ -319,21 +248,60 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
+      const itemsPerPage = 4;
+      const weeklyData = [
+        ["Budi", 340],
+        ["Ani", 300],
+        ["Yudi", 280],
+        ["Indah", 250],
+        ["Sigit", 220],
+      ];
+      const monthlyData = [
+        ["Yudi", 1280],
+        ["Budi", 1210],
+        ["Indah", 1100],
+        ["Ani", 1070],
+        ["Rama", 1020],
+      ];
+
+      function renderTable(data, tbodyId, page) {
+        const start = (page - 1) * itemsPerPage;
+        const sliced = data.slice(start, start + itemsPerPage);
+        const tbody = document.getElementById(tbodyId);
+        tbody.innerHTML = "";
+        sliced.forEach((row, i) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td>${start + i + 1}</td><td>${row[0]}</td><td>${
+            row[1]
+          }</td>`;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function renderPagination(data, containerId, tbodyId) {
+        const totalPages = Math.ceil(data.length / itemsPerPage);
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+        for (let i = 1; i <= totalPages; i++) {
+          const btn = document.createElement("button");
+          btn.className = "btn btn-sm btn-outline-warning mx-1";
+          btn.textContent = i;
+          btn.onclick = () => renderTable(data, tbodyId, i);
+          container.appendChild(btn);
+        }
+        renderTable(data, tbodyId, 1);
+      }
+
       function showTable(type) {
         document.getElementById("table-mingguan").classList.remove("active");
         document.getElementById("table-bulanan").classList.remove("active");
         document.getElementById("table-" + type).classList.add("active");
       }
 
-      // Navbar toggle for all screen sizes
       document.addEventListener("DOMContentLoaded", function () {
-        const toggler = document.querySelector(".navbar-toggler");
-        const target = document.querySelector(toggler.dataset.target);
-        toggler.addEventListener("click", function () {
-          target.classList.toggle("show");
-        });
+        renderPagination(weeklyData, "pagination-mingguan", "weeklyBody");
+        renderPagination(monthlyData, "pagination-bulanan", "monthlyBody");
       });
     </script>
 
