@@ -129,17 +129,6 @@
         color: #000;
       }
 
-      .footer {
-        background-color: #000000;
-        color: white;
-        padding: 30px 0;
-      }
-
-      .footer img.store-badge {
-        width: 150px;
-        margin: 10px;
-      }
-
       .trapezium-title {
         position: relative;
         background-color: #e5d8b0; /* krem kental */
@@ -212,6 +201,62 @@
         border-right: 4px solid red;
         border-bottom: 4px solid red;
         clip-path: polygon(100% 100%, 100% 50%, 50% 100%);
+      }
+
+      .fighter-heading-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 4px 0 10px;
+        text-align: center;
+      }
+
+      .fighter-heading {
+        font-size: 1rem;
+        font-family: "Georgia", serif;
+        color: #000;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding: 1px 12px;
+        border: 2px solid #e5d8b0;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #e5d8b0, #fff7d6);
+        background-color: #e5d8b0; /* fallback */
+        box-shadow: 0 0 10px rgba(229, 216, 176, 0.4);
+        white-space: nowrap;
+        text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.3);
+        animation: fadeInDown 0.6s ease-in-out;
+        text-align: center;
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsif */
+      @media (max-width: 576px) {
+        .fighter-heading {
+          font-size: 0.9rem;
+          padding: 5px 10px;
+        }
+      }
+
+      .footer {
+        background-color: #000000;
+        color: white;
+        padding: 30px 0;
+      }
+
+      .footer img.store-badge {
+        width: 150px;
+        margin: 10px;
       }
     </style>
   </head>
@@ -312,6 +357,9 @@
     <div id="fightList" class="card-fight-wrapper mt-4 opacity-100">
       <div class="trapezium-title">
         <span>Lihat Prediksi</span>
+      </div>
+      <div class="fighter-heading-wrapper">
+        <p class="fighter-heading">🎯 Pilih Fightermu</p>
       </div>
 
       <form id="formPrediksi">
