@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Akun Pengguna - Mola Fight Club</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/dfb796d71e.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      .navbar-custom {
+        background-color: #000;
+      }
+
+      .navbar-custom .navbar-brand,
+      .navbar-custom .nav-link {
+        color: #fff !important;
+      }
+
+      @media (max-width: 767.98px) {
+        .navbar .text-right {
+          text-align: left !important;
+        }
+
+        .navbar .nav-link {
+          padding: 0.25rem 0.5rem;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .navbar-nav .nav-item {
+          margin-top: 10px;
+          text-align: center;
+        }
+
+        .navbar-nav img {
+          margin-bottom: 5px;
+        }
+      }
+
+      .sidebar {
+        background-color: #000;
+        color: #fff;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      .sidebar a {
+        color: #fff;
+        display: block;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      .sidebar a:hover,
+      .sidebar a.active {
+        background-color: #cc5500;
+      }
+
+      .profile-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .profile-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      .point-badge {
+        background-color: #cc5500;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      .info-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        transition: all 0.2s;
+      }
+
+      .info-box:hover {
+        transform: translateY(-3px);
+      }
+
+      .info-box i {
+        font-size: 28px;
+        color: #cc5500;
+        margin-bottom: 10px;
+      }
+
+      .catalog-item {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .catalog-item:hover {
+        transform: translateY(-3px);
+      }
+
+      .catalog-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .btn-tukar {
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 767px) {
+        .sidebar {
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Mola Fight Club</a>
+
+        <!-- Hamburger (Mobile only) -->
+        <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarContent"
+        >
+          <span><i class="fas fa-bars text-white"></i></span>
+        </button>
+
+        <!-- Collapse Menu -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ml-auto text-center text-lg-left">
+            <li class="nav-item d-lg-none mb-2">
+              <!-- Optional: menu link untuk mobile -->
+              <a class="nav-link text-white" href="index.html">Keluar</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- User Info Always on Right -->
+        <!-- User Info Always on Right -->
+        <div class="d-flex align-items-center ml-3">
+          <a
+            href="profileSettings.html"
+            class="d-flex align-items-center text-white text-decoration-none"
+          >
+            <img
+              src="https://i.pinimg.com/736x/a8/8c/4a/a88c4ab39fc036cde36e52705a7072fb.jpg"
+              class="rounded-circle mr-2"
+              alt="Profile"
+              style="width: 40px; height: 40px; object-fit: cover"
+            />
+            <div class="text-white small text-right">
+              <strong>User Test</strong><br />
+              <span class="badge badge-warning">1,250 Poin</span>
+            </div>
+          </a>
+          <a
+            href="index.html"
+            class="nav-link text-white d-none d-lg-block ml-3"
+            style="font-size: 0.9rem"
+          >
+            Keluar
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Navbar side -->
+    <nav class="navbar navbar-expand-lg navbar-custom"></nav>
+
+    <!-- Layout -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar">
+          <h4 class="mb-4">Mola User</h4>
+          <a href="#" class="active" onclick="showSection('profile')"
+            >Profil Saya</a
+          >
+          <a href="#" onclick="showSection('catalog')">Katalog</a>
+          <a href="#" onclick="showSection('barang')">Barang Saya</a>
+          <a href="index.html">Kembali ke Beranda</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 p-4">
+          <!-- Profile Section -->
+          <div id="profile-section">
+            <div class="profile-card">
+              <img
+                src="https://i.pinimg.com/736x/a8/8c/4a/a88c4ab39fc036cde36e52705a7072fb.jpg"
+                alt="User Avatar"
+              />
+              <h5>User Test</h5>
+              <p>Pengguna Setia</p>
+              <div class="point-badge">1,250 Poin</div>
+            </div>
+
+            <h5 class="mb-4">👋 Selamat Datang Kembali!</h5>
+            <div class="row">
+              <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="info-box">
+                  <i class="fas fa-coins"></i>
+                  <div>Point Mola</div>
+                  <strong>1,250</strong>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="info-box">
+                  <i class="fas fa-box"></i>
+                  <div>Status Pemesanan</div>
+                  <strong>3 Diproses</strong>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="info-box">
+                  <i class="fas fa-history"></i>
+                  <div>Riwayat Penukaran</div>
+                  <strong>12 Penukaran</strong>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="info-box">
+                  <i class="fas fa-user-circle"></i>
+                  <div>Profil Saya</div>
+                  <strong>Diperbarui</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Catalog Section -->
+          <div id="catalog-section" style="display: none">
+            <h4 class="mb-3">🎁 Katalog Penukaran Poin</h4>
+            <div class="mb-3">
+              <button
+                class="btn btn-outline-dark btn-sm mr-2 filter-btn active"
+                data-filter="all"
+              >
+                Semua
+              </button>
+              <button
+                class="btn btn-outline-dark btn-sm mr-2 filter-btn"
+                data-filter="digital"
+              >
+                Digital
+              </button>
+              <button
+                class="btn btn-outline-dark btn-sm mr-2 filter-btn"
+                data-filter="bonus"
+              >
+                Bonus
+              </button>
+            </div>
+
+            <div class="row" id="catalog-container">
+              <div class="col-md-4 mb-4 catalog-item" data-category="digital">
+                <div class="card">
+                  <img
+                    src="https://i.pinimg.com/736x/a8/8c/4a/a88c4ab39fc036cde36e52705a7072fb.jpg"
+                  />
+                  <div class="card-body text-center">
+                    <h5>Item Digital A</h5>
+                    <p>500 Poin</p>
+                    <button
+                      class="btn btn-sm btn-secondary mr-2"
+                      onclick="lihatDetail('Item Digital A','https://i.pinimg.com/736x/a8/8c/4a/a88c4ab39fc036cde36e52705a7072fb.jpg','Kaos Eksklusif dengan bahan premium, nyaman dipakai.')"
+                    >
+                      Lihat
+                    </button>
+                    <button class="btn btn-primary btn-sm btn-tukar">
+                      Tukar
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-4 catalog-item" data-category="bonus">
+                <div class="card">
+                  <img
+                    src="https://i.pinimg.com/736x/5e/d7/a6/5ed7a60ef6de5777b56da266610f3adf.jpg"
+                  />
+                  <div class="card-body text-center">
+                    <h5>Item Bonus B</h5>
+                    <p>750 Poin</p>
+                    <button
+                      class="btn btn-sm btn-secondary mr-2"
+                      onclick="lihatDetail('Item Bonus B','https://i.pinimg.com/736x/5e/d7/a6/5ed7a60ef6de5777b56da266610f3adf.jpg','Voucher langganan streaming 1 bulan.')"
+                    >
+                      Lihat
+                    </button>
+                    <button class="btn btn-primary btn-sm btn-tukar">
+                      Tukar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Barang Saya Section -->
+          <div id="barang-section" style="display: none">
+            <h4 class="mb-4">📦 Barang Saya</h4>
+            <ul class="list-group">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Kaos Mola Eksklusif
+                <span class="badge badge-success badge-pill">Dikirim</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Voucher Streaming 1 Bulan
+                <span class="badge badge-warning badge-pill">Diproses</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Lihat Detail -->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Detail Item</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Tutup"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <img
+              id="modalImage"
+              src=""
+              alt="Item Detail"
+              class="img-fluid rounded mb-3"
+            />
+            <p id="modalDesc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function showSection(section) {
+        document.getElementById("profile-section").style.display = "none";
+        document.getElementById("catalog-section").style.display = "none";
+        document.getElementById("barang-section").style.display = "none";
+        document.getElementById(section + "-section").style.display = "block";
+
+        const links = document.querySelectorAll(".sidebar a");
+        links.forEach((link) => link.classList.remove("active"));
+        links.forEach((link) => {
+          if (link.getAttribute("onclick")?.includes(section)) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const catalogItems = document.querySelectorAll(".catalog-item");
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+
+          catalogItems.forEach((item) => {
+            const category = item.getAttribute("data-category");
+            item.style.display =
+              filter === "all" || category === filter ? "block" : "none";
+          });
+        });
+      });
+
+      function lihatDetail(judul, gambar, deskripsi) {
+        document.getElementById("modalTitle").innerText = judul;
+        document.getElementById("modalImage").src = gambar;
+        document.getElementById("modalDesc").innerText = deskripsi;
+        $("#detailModal").modal("show");
+      }
+    </script>
+  </body>
+</html>

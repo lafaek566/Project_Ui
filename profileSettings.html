@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Profil Saya - Mola Fight Club</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/dfb796d71e.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f3f4f6;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+
+      .card-custom {
+        background: #fff;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+      }
+
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        box-shadow: 0 0 0 4px #cc5500;
+      }
+
+      .point-badge {
+        background-color: #cc5500;
+        color: #fff;
+        padding: 6px 18px;
+        border-radius: 50px;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+
+      .form-label {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .btn-primary {
+        background-color: #cc5500;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: #b34700;
+      }
+
+      .btn-success {
+        background-color: #28a745;
+        border: none;
+      }
+
+      @media (max-width: 767px) {
+        .card-custom {
+          padding: 20px;
+        }
+
+        .profile-img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-7">
+          <div class="card card-custom text-center">
+            <!-- Foto & Nama Sejajar -->
+            <div
+              class="d-flex align-items-center justify-content-center flex-column flex-md-row mb-3"
+            >
+              <img
+                id="profileImage"
+                src="https://i.pinimg.com/736x/a8/8c/4a/a88c4ab39fc036cde36e52705a7072fb.jpg"
+                alt="Avatar"
+                class="profile-img mr-md-4 mb-3 mb-md-0"
+              />
+              <div class="text-center text-md-left">
+                <h4 id="userName">User Test</h4>
+                <p id="userStatus" class="text-muted mb-2">Pengguna Setia</p>
+                <div class="point-badge">1,250 Poin</div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <h5 class="mb-3 text-left">👤 Informasi Akun</h5>
+
+            <div class="text-left">
+              <div class="form-group">
+                <label class="form-label">Nama Lengkap</label>
+                <input
+                  type="text"
+                  id="inputName"
+                  class="form-control"
+                  value="User Test"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Tanggal Bergabung</label>
+                <input
+                  type="date"
+                  id="inputJoinDate"
+                  class="form-control"
+                  value="2024-01-01"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Status Akun</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="Aktif"
+                  disabled
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Status Langganan</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="Premium"
+                  disabled
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Verifikasi Akun</label><br />
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="verifikasi"
+                    id="verifyEmail"
+                    value="email"
+                    checked
+                  />
+                  <label class="form-check-label" for="verifyEmail">
+                    Email
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="verifikasi"
+                    id="verifyFB"
+                    value="fb"
+                  />
+                  <label class="form-check-label" for="verifyFB">
+                    Facebook
+                  </label>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="simpanProfil()">
+                  Simpan Perubahan
+                </button>
+                <a
+                  href="user.html"
+                  id="btnLihatProfil"
+                  class="btn btn-success ml-2 d-none"
+                >
+                  Lihat Profil Saya
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+      function simpanProfil() {
+        const namaBaru = document.getElementById("inputName").value;
+        const tglGabung = document.getElementById("inputJoinDate").value;
+        const verifikasi = document.querySelector(
+          'input[name="verifikasi"]:checked'
+        ).value;
+
+        document.getElementById("userName").innerText = namaBaru;
+        document.getElementById("userStatus").innerText =
+          "Bergabung sejak " +
+          tglGabung +
+          " via " +
+          (verifikasi === "email" ? "Email" : "Facebook");
+
+        alert("✅ Profil berhasil diperbarui (dummy saja)");
+        document.getElementById("btnLihatProfil").classList.remove("d-none");
+      }
+    </script>
+  </body>
+</html>
