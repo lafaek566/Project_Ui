@@ -18,40 +18,127 @@
         background-color: #000;
       }
 
-      .navbar-brand,
-      .nav-link,
-      .btn-outline-light {
+      .navbar .nav-link,
+      .navbar .navbar-brand {
         color: #fff !important;
+      }
+
+      .navbar-sub {
+        background-color: #e5d8b0;
+        border: 2px solid #cc5500;
+        box-shadow: 0 0 20px #cc5500;
+        border-radius: 6px;
+      }
+
+      .navbar-sub .nav-link {
+        padding: 0.01rem 0.8rem;
+        font-weight: 100;
+        color: #000 !important;
+      }
+
+      @media (max-width: 767.98px) {
+        .navbar-sub .navbar-nav {
+          flex-wrap: nowrap !important;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          white-space: nowrap;
+        }
+
+        .navbar-sub .nav-item {
+          flex: 0 0 auto;
+          padding: 0.00001px 9px;
+        }
       }
 
       .catalog-header {
         background: linear-gradient(to right, #000, #333);
         color: white;
-        padding: 60px 0;
+        padding: 40px 0;
         text-align: center;
       }
 
+      .catalog-title {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .catalog-subtitle {
+        font-size: 1.1rem;
+        color: #ccc;
+      }
+
       .catalog-card {
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        transition: 0.3s;
+        background-color: #fff;
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
       }
 
       .catalog-card:hover {
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .catalog-card .image-wrapper {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background-color: #eee;
       }
 
       .catalog-card img {
-        max-height: 200px;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        display: block;
+      }
+
+      .catalog-card .card-body {
+        flex-grow: 1;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .catalog-card h5 {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .catalog-card p {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .catalog-card .btn {
+        font-size: 0.85rem;
+        border-radius: 20px;
       }
 
       .footer {
         background-color: #000;
         color: #fff;
         padding: 30px 0;
+        text-align: center;
+      }
+
+      .footer img.store-badge {
+        width: 150px;
+        margin: 10px;
+      }
+
+      @media (max-width: 576px) {
+        .catalog-header {
+          padding: 30px 0;
+        }
+
+        .catalog-title {
+          font-size: 1.5rem;
+        }
       }
     </style>
   </head>
@@ -59,31 +146,63 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <a class="navbar-brand font-weight-bold" href="#">Mola Catalog</a>
+        <a class="navbar-brand" href="index.html">Mola Fight Club</a>
         <button
           class="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="#navbarNav"
+          data-target="#navbarMain"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto text-center">
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav mx-auto text-center">
             <li class="nav-item">
-              <a class="nav-link" href="#">Beranda</a>
+              <a class="nav-link" href="index.html">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Profil Saya</a>
+              <a class="nav-link" href="prediksi.html">Prediksi Sekarang</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Akun Saya</a>
+              <a class="nav-link" href="tonton.html">Tonton Pertandingan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Item Saya</a>
+              <a class="nav-link" href="leaderboard.html">Pangkat Peringkat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="howtoplay.html">Cara Bermain</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="berita.html">Berita</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="FAQ.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="catalog.html">Tukar Point</a>
             </li>
           </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sub-navbar -->
+    <nav class="navbar navbar-sub">
+      <div class="container">
+        <div class="navbar-nav w-100 justify-content-center flex-row flex-wrap">
+          <a class="nav-item nav-link" href="index.html">Beranda</a>
+          <a class="nav-item nav-link" href="howtoplay.html">Cara Bermain</a>
+          <a class="nav-item nav-link" href="catalog.html">Tukar Point</a>
+          <a class="nav-item nav-link" href="leaderboard.html">Leaderboard</a>
+          <a class="nav-item nav-link" href="FAQ.html">FAQ</a>
+          <a class="nav-item nav-link" href="tonton.html"
+            >Tonton Pertandingan</a
+          >
+          <a
+            class="nav-item nav-link text-danger font-weight-bold"
+            href="prediksi.html"
+            >Live Prediksi</a
+          >
         </div>
       </div>
     </nav>
@@ -91,8 +210,10 @@
     <!-- Header -->
     <section class="catalog-header">
       <div class="container">
-        <h1 class="display-4">Katalog Item</h1>
-        <p class="lead">Temukan berbagai item digital dan reward menarik.</p>
+        <h1 class="catalog-title">🎁 Katalog Item</h1>
+        <p class="catalog-subtitle">
+          Temukan berbagai item digital dan reward menarik.
+        </p>
       </div>
     </section>
 
@@ -100,69 +221,108 @@
     <section class="py-5">
       <div class="container">
         <div class="row">
-          <!-- Item 1 -->
-          <div class="col-md-4 mb-4">
+          <!-- Katalog Items -->
+          <!-- Item Template -->
+          <!-- Tambah atau ubah data sesuai kebutuhan -->
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
             <div class="catalog-card">
-              <img
-                src="https://via.placeholder.com/400x200?text=Item+1"
-                class="img-fluid"
-                alt="Item 1"
-              />
-              <div class="p-3">
+              <div class="image-wrapper">
+                <img
+                  src="https://i.pinimg.com/736x/a8/8c/4a/a88c4ab39fc036cde36e52705a7072fb.jpg"
+                  alt="Item 1"
+                />
+              </div>
+              <div class="card-body">
                 <h5>Item Digital A</h5>
-                <p>Deskripsi singkat item digital A.</p>
-                <button class="btn btn-primary btn-block">
+                <p>Deskripsi singkat A</p>
+                <button class="btn btn-primary btn-sm btn-block">
                   Tukar 500 Poin
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- Item 2 -->
-          <div class="col-md-4 mb-4">
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
             <div class="catalog-card">
-              <img
-                src="https://via.placeholder.com/400x200?text=Item+2"
-                class="img-fluid"
-                alt="Item 2"
-              />
-              <div class="p-3">
+              <div class="image-wrapper">
+                <img
+                  src="https://i.pinimg.com/736x/0e/a6/01/0ea6018541f559956d9a3eca86f1fd80.jpg"
+                  alt="Item 2"
+                />
+              </div>
+              <div class="card-body">
                 <h5>Item Digital B</h5>
-                <p>Deskripsi singkat item digital B.</p>
-                <button class="btn btn-primary btn-block">
+                <p>Deskripsi singkat B</p>
+                <button class="btn btn-primary btn-sm btn-block">
                   Tukar 750 Poin
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- Item 3 -->
-          <div class="col-md-4 mb-4">
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
             <div class="catalog-card">
-              <img
-                src="https://via.placeholder.com/400x200?text=Item+3"
-                class="img-fluid"
-                alt="Item 3"
-              />
-              <div class="p-3">
+              <div class="image-wrapper">
+                <img
+                  src="https://i.pinimg.com/736x/66/01/1f/66011ff61578dabeae5e5d8603d846cf.jpg"
+                  alt="Item 3"
+                />
+              </div>
+              <div class="card-body">
                 <h5>Item Digital C</h5>
-                <p>Deskripsi singkat item digital C.</p>
-                <button class="btn btn-primary btn-block">
+                <p>Deskripsi singkat C</p>
+                <button class="btn btn-primary btn-sm btn-block">
                   Tukar 1000 Poin
                 </button>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Bisa tambah row lain -->
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="catalog-card">
+              <div class="image-wrapper">
+                <img
+                  src="https://i.pinimg.com/736x/5e/d7/a6/5ed7a60ef6de5777b56da266610f3adf.jpg"
+                  alt="Item 4"
+                />
+              </div>
+              <div class="card-body">
+                <h5>Item Digital D</h5>
+                <p>Bonus menarik lainnya</p>
+                <button class="btn btn-primary btn-sm btn-block">
+                  Tukar 1200 Poin
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Tombol Kembali -->
+    <div class="container text-center my-4">
+      <a href="index.html" class="btn btn-secondary btn-sm">
+        ← Kembali ke Beranda
+      </a>
+    </div>
+
     <!-- Footer -->
-    <footer class="footer text-center">
+    <footer class="footer">
       <div class="container">
-        <p class="mb-0">© 2025 Mola Digital Catalog. All rights reserved.</p>
+        <p>Unduh Aplikasi Kami di:</p>
+        <a href="https://play.google.com/store" target="_blank">
+          <img
+            class="store-badge"
+            src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+          />
+        </a>
+        <a href="https://www.apple.com/app-store/" target="_blank">
+          <img
+            class="store-badge"
+            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+          />
+        </a>
+        <p class="mt-3 mb-0">© 2025 Mola Fight Club. All rights reserved.</p>
       </div>
     </footer>
 

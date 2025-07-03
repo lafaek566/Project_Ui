@@ -1,7 +1,148 @@
 body {
   background-color: #f8f9fa;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
-h1, h2 {
+h1,
+h2 {
   color: #343a40;
+}
+
+// how to play css
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: #000000;
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+}
+
+.navbar .nav-link {
+  color: #fff !important;
+}
+
+.navbar .btn-outline-light {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* === SUB-NAVBAR === */
+.navbar-sub {
+  background-color: #e5d8b0;
+  border: 2px solid #cc5500;
+  box-shadow: 0 0 20px #cc5500;
+  border-radius: 6px;
+}
+
+.navbar-sub .nav-link {
+  padding: 0.01rem 0.8rem;
+  font-weight: 100;
+  color: #000 !important;
+}
+
+@media (max-width: 767.98px) {
+  .navbar-sub .navbar-nav {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .navbar-sub .nav-item {
+    flex: 0 0 auto;
+    padding: 0.00001px 9px;
+  }
+}
+
+/* === FOOTER === */
+.footer {
+  background-color: #000000;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer img.store-badge {
+  width: 150px;
+  margin: 10px;
+}
+
+/* === HOW TO PLAY SECTION === */
+.howtoplay-container {
+  border: 3px solid #d4af37;
+  border-radius: 12px;
+  padding: 40px 30px;
+  margin-top: 60px;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+  background-color: #111;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.howtoplay-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #d4af37;
+  margin-bottom: 30px;
+}
+
+.step-box {
+  background-color: #1a1a1a;
+  border-left: 5px solid #d4af37;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.step-box:hover {
+  transform: translateY(-4px);
+  background-color: #222;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.step-icon {
+  color: #d4af37;
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.btn-main {
+  background-color: #d4af37;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  margin-top: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-main:hover {
+  background-color: #c39d2f;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 576px) {
+  .howtoplay-title {
+    font-size: 1.6rem;
+  }
 }

@@ -2,24 +2,18 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+    <title>Tonton Pertandingan - Mola Fight Club</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cara Bermain - Mola Fight Club</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
     <style>
       body {
-        background-color: #000;
-        color: #fff;
         font-family: "Segoe UI", sans-serif;
+        background-color: #f8f9fa;
       }
 
-      /* === NAVBAR === */
       .navbar {
         background-color: #000000;
       }
@@ -37,11 +31,10 @@
         color: #fff;
       }
 
-      /* === SUB-NAVBAR === */
       .navbar-sub {
         background-color: #e5d8b0;
-        border: 2px solid #cc5500; /* outline orange tua */
-        box-shadow: 0 0 20px #cc5500; /* efek glow orange tua */
+        border: 2px solid #cc5500;
+        box-shadow: 0 0 20px #cc5500;
         border-radius: 6px;
       }
 
@@ -65,7 +58,40 @@
         }
       }
 
-      /* === FOOTER === */
+      .section-title {
+        background: linear-gradient(to right, #000, #333);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .match-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 30px;
+        transition: transform 0.2s;
+      }
+
+      .match-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .match-thumb {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .match-body {
+        padding: 20px;
+      }
+
+      .match-body h5 {
+        font-weight: bold;
+      }
+
       .footer {
         background-color: #000000;
         color: white;
@@ -77,91 +103,13 @@
         width: 150px;
         margin: 10px;
       }
-
-      .howtoplay-container {
-        border: 3px solid #d4af37;
-        border-radius: 12px;
-        padding: 40px 30px;
-        margin-top: 60px;
-        box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-        background-color: #111;
-        animation: fadeIn 1s ease-in-out;
-      }
-
-      .howtoplay-title {
-        text-align: center;
-        font-size: 2.2rem;
-        font-weight: bold;
-        color: #d4af37;
-        margin-bottom: 30px;
-      }
-
-      .step-box {
-        background-color: #1a1a1a;
-        border-left: 5px solid #d4af37;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        transition: 0.3s ease;
-      }
-
-      .step-box:hover {
-        transform: translateY(-4px);
-        background-color: #222;
-        box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-      }
-
-      .step-icon {
-        color: #d4af37;
-        margin-right: 10px;
-        font-size: 1.5rem;
-      }
-
-      .btn-main {
-        background-color: #d4af37;
-        color: #000;
-        font-weight: bold;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 30px;
-        margin-top: 30px;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .btn-main:hover {
-        background-color: #c39d2f;
-        transform: scale(1.05);
-        box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 576px) {
-        .howtoplay-title {
-          font-size: 1.6rem;
-        }
-      }
     </style>
   </head>
   <body>
     <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-lg navbar-dark"
-      style="background-color: #000"
-    >
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <a class="navbar-brand font-weight-bold" href="index.html"
-          >Mola Fight Club</a
-        >
+        <a class="navbar-brand" href="index.html">Mola Fight Club</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -170,7 +118,6 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="btn btn-outline-light d-lg-none ml-auto" href="#">Login</a>
         <div class="collapse navbar-collapse" id="navbarMain">
           <ul class="navbar-nav mx-auto text-center">
             <li class="nav-item">
@@ -192,16 +139,13 @@
               <a class="nav-link" href="berita.html">Berita</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="FAQ.html">FAQ</a>
+              <a class="nav-link" href="faq.html">FAQ</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="catalog.html">Tukar Point</a>
             </li>
           </ul>
         </div>
-        <a class="btn btn-outline-light d-none d-lg-block ml-3" href="#"
-          >Login</a
-        >
       </div>
     </nav>
 
@@ -215,62 +159,79 @@
           <a class="nav-item nav-link" href="leaderboard.html"
             >Papan Peringkat</a
           >
-          <a class="nav-item nav-link" href="FAQ.html">FAQ</a>
+          <a class="nav-item nav-link" href="faq.html">FAQ</a>
           <a class="nav-item nav-link" href="tonton.html"
             >Tonton Pertandingan</a
           >
           <a
             class="nav-item nav-link text-danger font-weight-bold"
             href="prediksi.html"
+            >Live Prediksi Sekarang</a
           >
-            Live Prediksi Sekarang
-          </a>
         </div>
       </div>
     </nav>
 
-    <div class="container howtoplay-container">
-      <h1 class="howtoplay-title">💡 Cara Bermain</h1>
-
-      <div class="step-box">
+    <!-- Header -->
+    <section class="section-title">
+      <div class="container">
+        <h1>🥊 Tonton Pertandingan Langsung</h1>
         <p>
-          <i class="fas fa-user-check step-icon"></i
-          ><strong>1. Daftar / Masuk</strong><br />
-          Buat akun atau login ke platform Mola Fight Club.
+          Nikmati pertarungan seru dan tayangan ulang langsung dari platform
+          kami.
         </p>
       </div>
+    </section>
 
-      <div class="step-box">
-        <p>
-          <i class="fas fa-fist-raised step-icon"></i
-          ><strong>2. Lihat Pertandingan</strong><br />
-          Cek daftar pertarungan yang sedang berlangsung.
-        </p>
-      </div>
+    <!-- Video Section -->
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="match-card">
+            <img
+              src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+              alt="Match 1"
+              class="match-thumb"
+            />
+            <div class="match-body">
+              <h5>Final Championship 2025</h5>
+              <p>Rewatch: Fighter A vs Fighter B</p>
+              <a
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                target="_blank"
+                class="btn btn-danger btn-block"
+                >Tonton Sekarang</a
+              >
+            </div>
+          </div>
+        </div>
 
-      <div class="step-box">
-        <p>
-          <i class="fas fa-bullseye step-icon"></i
-          ><strong>3. Prediksi Pemenang</strong><br />
-          Pilih petarung yang kamu yakini akan menang dari setiap pertandingan.
-        </p>
-      </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="match-card">
+            <img
+              src="https://img.youtube.com/vi/3GwjfUFyY6M/hqdefault.jpg"
+              alt="Match 2"
+              class="match-thumb"
+            />
+            <div class="match-body">
+              <h5>Semi Final 2</h5>
+              <p>Fighter C vs Fighter D</p>
+              <a
+                href="https://www.youtube.com/watch?v=3GwjfUFyY6M"
+                target="_blank"
+                class="btn btn-danger btn-block"
+                >Tonton Sekarang</a
+              >
+            </div>
+          </div>
+        </div>
 
-      <div class="step-box">
-        <p>
-          <i class="fas fa-star step-icon"></i
-          ><strong>4. Raih Poin & Hadiah</strong><br />
-          Kumpulkan poin dari prediksi yang benar dan menangkan hadiah menarik!
-        </p>
-      </div>
-
-      <div class="text-center">
-        <a href="index.html" class="btn btn-main">Kembali ke Beranda</a>
+        <!-- Tambah lebih banyak match jika perlu -->
       </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer text-center mt-5">
+    <footer class="footer">
       <div class="container">
         <p>Unduh Aplikasi Kami di:</p>
         <a href="https://play.google.com/store" target="_blank">
@@ -279,7 +240,6 @@
             src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
           />
         </a>
-
         <a href="https://www.apple.com/app-store/" target="_blank">
           <img
             class="store-badge"
@@ -290,8 +250,9 @@
       </div>
     </footer>
 
-    <!-- Optional JS -->
+    <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
