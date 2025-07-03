@@ -75,13 +75,15 @@
           font-size: 1.6rem;
         }
       }
+
       .hero {
+        width: 100vw;
         position: relative;
-        min-height: 50vh;
+        min-height: 70vh; /* untuk desktop */
         background-image: url("https://media-public.canva.com/oRrkw/MAGOQOoRrkw/1/s2.jpg");
-        background-size: cover; /* ubah dari 'contain' ke 'cover' agar gambar memenuhi lebar */
+        background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: top center; /* PENTING: fokus ke bagian atas gambar */
         background-color: #000;
         display: flex;
         align-items: center;
@@ -89,9 +91,10 @@
         text-align: center;
         color: white;
         padding: 40px 20px;
+        margin-left: calc(-50vw + 50%);
+        overflow: hidden;
       }
 
-      /* Tambahkan overlay untuk efek gelap jika perlu */
       .hero::before {
         content: "";
         position: absolute;
@@ -118,11 +121,10 @@
         margin: 0 auto;
       }
 
-      /* Responsive adjustments */
       @media (max-width: 768px) {
         .hero {
-          background-size: cover; /* di mode mobile, izinkan sedikit terpotong agar tetap penuh */
-          min-height: 30vh;
+          min-height: 55vh; /* naikkan dari 30vh agar proporsional */
+          background-position: top center; /* fokus tetap bagian atas */
         }
 
         .hero-title {
@@ -393,7 +395,9 @@
           <a class="nav-item nav-link" href="#">Beranda</a>
           <a class="nav-item nav-link" href="howtoplay.html">Cara Bermain</a>
           <a class="nav-item nav-link" href="#">Tukar Point</a>
-          <a class="nav-item nav-link" href="#">Papan Peringkat</a>
+          <a class="nav-item nav-link" href="leaderboard.html"
+            >Papan Peringkat</a
+          >
           <a class="nav-item nav-link" href="#">FAQ</a>
           <a class="nav-item nav-link" href="#">Tonton Pertandingan</a>
           <a class="nav-item nav-link text-danger font-weight-bold" href="#"
@@ -406,17 +410,20 @@
     <!-- Hero -->
     <section
       class="hero d-flex align-items-center justify-content-center text-center"
+    ></section>
+
+    <!-- Section Button Tengah -->
+    <section
+      class="section-ranking text-center d-flex align-items-center justify-content-center"
     >
-      <div class="container">
-        <div class="hero-box">
-          <h1 class="hero-title">Ikuti Pertandingan Seru & Raih Poinmu!</h1>
-          <a
-            href="leaderboard.html"
-            class="btn btn-warning btn-lg mt-4 text-uppercase font-weight-bold shadow"
-          >
-            Lihat Peringkat
-          </a>
-        </div>
+      <div style="margin-top: 40px">
+        <!-- tambah jarak ke bawah -->
+        <a
+          href="leaderboard.html"
+          class="btn btn-warning btn-lg text-uppercase font-weight-bold shadow"
+        >
+          Lihat Peringkat
+        </a>
       </div>
     </section>
 
