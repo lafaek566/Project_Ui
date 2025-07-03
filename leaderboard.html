@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <title>Leaderboard - Mola Fight Club</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap 4 -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-
     <style>
       :root {
         --gold: #d4af37;
@@ -25,30 +22,16 @@
       }
 
       .navbar-sub {
-        background-color: #e5d8b0 !important;
-        padding: 10px 0;
+        background-color: #e5d8b0;
+        border: 4px solid #cc5500;
+        box-shadow: 0 0 20px #cc5500;
+        border-radius: 6px;
       }
 
       .navbar-sub .nav-link {
-        color: #e5d8b0 !important;
-        padding: 0.6rem 1rem; /* tambahkan padding untuk jarak */
-        margin: 0 6px; /* jarak antar link */
+        padding: 0.5rem 0.75rem;
         font-weight: 500;
-        transition: 0.2s ease;
-      }
-
-      .nav-link {
-        color: #fff !important;
-        font-weight: 500;
-        transition: 0.2s ease;
-      }
-
-      .navbar-sub .nav-link {
         color: #000 !important;
-      }
-
-      .navbar-sub .nav-link:hover {
-        color: var(--gold) !important;
       }
 
       .nav-link:hover {
@@ -174,10 +157,9 @@
       }
     </style>
   </head>
-
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand font-weight-bold" href="index.html"
           >Mola Fight Club</a
@@ -254,7 +236,6 @@
     </div>
 
     <div class="container">
-      <!-- Mingguan -->
       <div id="table-mingguan" class="table-section active">
         <h4 class="text-center mb-3 text-light">Peringkat Mingguan</h4>
         <div class="table-responsive">
@@ -275,7 +256,6 @@
         ></nav>
       </div>
 
-      <!-- Bulanan -->
       <div id="table-bulanan" class="table-section">
         <h4 class="text-center mb-3 text-light">Peringkat Bulanan</h4>
         <div class="table-responsive">
@@ -303,7 +283,6 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer text-center mt-5">
       <div class="container">
         <p>Unduh Aplikasi Kami di:</p>
@@ -323,10 +302,8 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
       const itemsPerPage = 5;
-
       const weeklyData = [
         ["Budi", 340],
         ["Ani", 300],
@@ -339,7 +316,6 @@
         ["Wulan", 140],
         ["Dimas", 120],
       ];
-
       const monthlyData = [
         ["Yudi", 1280],
         ["Budi", 1210],
@@ -392,7 +368,6 @@
         renderPagination(monthlyData, "pagination-bulanan", "monthlyBody");
       });
     </script>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
