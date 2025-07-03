@@ -16,15 +16,29 @@
 
       .navbar-sub {
         background-color: #e5d8b0;
-        border: 4px solid #cc5500; /* outline orange tua */
+        border: 2px solid #cc5500; /* outline orange tua */
         box-shadow: 0 0 20px #cc5500; /* efek glow orange tua */
         border-radius: 6px;
       }
 
       .navbar-sub .nav-link {
-        padding: 0.01rem 0.75rem;
+        padding: 0.01rem 0.5rem;
         font-weight: 100;
         color: #000 !important;
+      }
+
+      @media (max-width: 767.98px) {
+        .navbar-sub .navbar-nav {
+          flex-wrap: nowrap !important;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          white-space: nowrap;
+        }
+
+        .navbar-sub .nav-item {
+          flex: 0 0 auto;
+          padding: 0.1px 9px;
+        }
       }
 
       @media (max-width: 767.98px) {
@@ -62,12 +76,14 @@
         }
       }
 
-      /* HERO RESPONSIF */
       .hero {
         position: relative;
-        min-height: 60vh;
-        background: url("https://i.pinimg.com/736x/50/e1/ac/50e1ac3b67549090d61bc8e42a1b4192.jpg")
-          center center / cover no-repeat;
+        min-height: 70vh;
+        background-image: url("https://media-public.canva.com/oRrkw/MAGOQOoRrkw/1/s2.jpg");
+        background-size: contain; /* memastikan gambar tidak terpotong */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #000; /* latar belakang hitam jika gambar tidak penuh */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,6 +92,7 @@
         padding: 40px 20px;
       }
 
+      /* Tambahkan overlay untuk efek gelap jika perlu */
       .hero::before {
         content: "";
         position: absolute;
@@ -83,13 +100,13 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.5); /* efek gelap */
         z-index: 0;
       }
 
       .hero .container {
-        z-index: 1;
         position: relative;
+        z-index: 1;
       }
 
       .hero-title {
@@ -98,29 +115,19 @@
         text-transform: uppercase;
         color: #fff;
         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-        margin: 0 auto;
         max-width: 800px;
+        margin: 0 auto;
       }
 
+      /* Responsive adjustments */
       @media (max-width: 768px) {
         .hero {
+          background-size: cover; /* di mode mobile, izinkan sedikit terpotong agar tetap penuh */
           min-height: 50vh;
-          padding: 30px 15px;
         }
 
         .hero-title {
-          font-size: 1.8rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero {
-          min-height: 45vh;
-          padding: 25px 10px;
-        }
-
-        .hero-title {
-          font-size: 1.4rem;
+          font-size: 1.75rem;
         }
       }
 
