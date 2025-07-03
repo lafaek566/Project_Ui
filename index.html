@@ -75,15 +75,14 @@
           font-size: 1.6rem;
         }
       }
-
       .hero {
         position: relative;
         min-height: 50vh;
         background-image: url("https://media-public.canva.com/oRrkw/MAGOQOoRrkw/1/s2.jpg");
-        background-size: contain; /* memastikan gambar tidak terpotong */
+        background-size: cover; /* ubah dari 'contain' ke 'cover' agar gambar memenuhi lebar */
         background-repeat: no-repeat;
         background-position: center;
-        background-color: #000; /* latar belakang hitam jika gambar tidak penuh */
+        background-color: #000;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -371,8 +370,9 @@
               <a class="nav-link" href="#">Pangkat Peringkat</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Cara Bermain</a>
+              <a class="nav-link" href="howtoplay.html">Cara Bermain</a>
             </li>
+
             <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
             <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
             <li class="nav-item">
@@ -391,7 +391,7 @@
       <div class="container">
         <div class="navbar-nav w-100 justify-content-center flex-row flex-wrap">
           <a class="nav-item nav-link" href="#">Beranda</a>
-          <a class="nav-item nav-link" href="#">Cara Bermain</a>
+          <a class="nav-item nav-link" href="howtoplay.html">Cara Bermain</a>
           <a class="nav-item nav-link" href="#">Tukar Point</a>
           <a class="nav-item nav-link" href="#">Papan Peringkat</a>
           <a class="nav-item nav-link" href="#">FAQ</a>
