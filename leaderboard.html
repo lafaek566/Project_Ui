@@ -24,19 +24,31 @@
         font-family: "Segoe UI", sans-serif;
       }
 
-      .navbar,
       .navbar-sub {
-        background-color: var(--dark);
+        background-color: #e5d8b0 !important;
+        padding: 10px 0;
       }
 
-      .navbar-sub {
-        background-color: var(--gray-dark);
+      .navbar-sub .nav-link {
+        color: #e5d8b0 !important;
+        padding: 0.6rem 1rem; /* tambahkan padding untuk jarak */
+        margin: 0 6px; /* jarak antar link */
+        font-weight: 500;
+        transition: 0.2s ease;
       }
 
       .nav-link {
         color: #fff !important;
         font-weight: 500;
         transition: 0.2s ease;
+      }
+
+      .navbar-sub .nav-link {
+        color: #000 !important;
+      }
+
+      .navbar-sub .nav-link:hover {
+        color: var(--gold) !important;
       }
 
       .nav-link:hover {
@@ -57,6 +69,24 @@
       .btn-outline-warning:hover {
         background-color: var(--gold);
         color: var(--dark);
+      }
+
+      .btn-toggle {
+        background-color: #e5d8b0;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        margin: 0 5px;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-toggle:hover {
+        background-color: var(--gold);
+        color: #000;
+        transform: translateY(-2px);
       }
 
       .table-section {
@@ -86,6 +116,31 @@
 
       .table tbody td {
         color: #f8f9fa;
+        vertical-align: middle;
+      }
+
+      .table tbody tr:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        transition: 0.2s;
+      }
+
+      .table {
+        border: 1px solid var(--gold);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .table th,
+      .table td {
+        border: 1px solid #444;
+      }
+
+      .pagination .btn {
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        font-weight: bold;
       }
 
       .footer {
@@ -100,26 +155,15 @@
         margin: 10px;
       }
 
-      .navbar-sub .nav-link {
-        padding: 0.5rem 1rem;
-        margin: 0 6px;
-        font-weight: 500;
-        color: #fff !important;
-        transition: 0.2s ease;
-      }
-
       @media (max-width: 576px) {
         h2 {
           font-size: 1.5rem;
         }
 
-        .btn-group {
-          flex-direction: column;
-        }
-
-        .btn-group .btn {
+        .btn-toggle {
+          display: block;
           width: 100%;
-          margin-bottom: 10px;
+          margin: 10px auto;
         }
 
         .table th,
@@ -127,21 +171,13 @@
           font-size: 0.85rem;
           padding: 0.5rem;
         }
-
-        .btn-outline-warning {
-          font-size: 0.9rem;
-          padding: 0.4rem 0.75rem;
-        }
       }
     </style>
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-lg navbar-dark"
-      style="background-color: #000"
-    >
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
         <a class="navbar-brand font-weight-bold" href="index.html"
           >Mola Fight Club</a
@@ -207,12 +243,12 @@
     <!-- Leaderboard Section -->
     <div class="container text-center mt-5">
       <h2 class="mb-4 text-warning">🏆 Leaderboard</h2>
-      <div class="btn-group mb-4">
-        <button class="btn btn-outline-warning" onclick="showTable('mingguan')">
-          Mingguan
+      <div class="mb-4">
+        <button class="btn-toggle" onclick="showTable('mingguan')">
+          🏅 Mingguan
         </button>
-        <button class="btn btn-outline-warning" onclick="showTable('bulanan')">
-          Bulanan
+        <button class="btn-toggle" onclick="showTable('bulanan')">
+          🏆 Bulanan
         </button>
       </div>
     </div>
@@ -289,20 +325,32 @@
 
     <!-- Scripts -->
     <script>
-      const itemsPerPage = 4;
+      const itemsPerPage = 5;
+
       const weeklyData = [
         ["Budi", 340],
         ["Ani", 300],
         ["Yudi", 280],
         ["Indah", 250],
         ["Sigit", 220],
+        ["Rama", 200],
+        ["Citra", 180],
+        ["Fajar", 160],
+        ["Wulan", 140],
+        ["Dimas", 120],
       ];
+
       const monthlyData = [
         ["Yudi", 1280],
         ["Budi", 1210],
         ["Indah", 1100],
         ["Ani", 1070],
         ["Rama", 1020],
+        ["Sigit", 980],
+        ["Fajar", 940],
+        ["Citra", 900],
+        ["Wulan", 870],
+        ["Dimas", 820],
       ];
 
       function renderTable(data, tbodyId, page) {
